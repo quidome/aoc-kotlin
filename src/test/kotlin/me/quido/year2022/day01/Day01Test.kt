@@ -23,8 +23,7 @@ class Day01Test {
                  8000
                  9000
 
-                 10000
-                 
+                 10000          
         """.trimIndent().trimEnd()
 
         val output = day.getHighestCalorieCountFromElves(input)
