@@ -1,15 +1,11 @@
 package me.quido.year2022.day01
 
-import kotlin.test.Test
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.CsvSource
 import kotlin.test.assertEquals
 
 class Day01Test {
-    private val day = Day01()
-
-    @Test
-    fun getHighestCaloriesFromElves() {
-        val expected = 24000
-        val input = """
+    private val input = """
                  1000
                  2000
                  3000
@@ -26,8 +22,14 @@ class Day01Test {
                  10000          
         """.trimIndent().trimEnd()
 
-        val output = day.getHighestCalorieCountFromElves(input)
+    private val solver = Day01(input)
 
-        assertEquals(expected, output)
+    @ParameterizedTest
+    @CsvSource(
+        "1, 24000",
+        "3, 45000"
+    )
+    fun getCaloriesFromANumberOfElves(elves: Int, expected: Int) {
+        assertEquals(expected, solver.getCaloriesCarriedByTheTopElves(elves))
     }
 }
