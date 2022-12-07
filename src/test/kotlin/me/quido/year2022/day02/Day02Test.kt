@@ -17,7 +17,7 @@ class Day02Test {
     fun givenTestSetMethodShouldReturn15() {
         val expected = 15
 
-        val output = solver.rockPaperScissorsScore()
+        val output = solver.part1()
 
         assertEquals(expected, output)
     }
@@ -26,7 +26,7 @@ class Day02Test {
     fun givenTestSetMethodShouldReturn12() {
         val expected = 12
 
-        val output = solver.rockPaperScissorsScoreNextGen()
+        val output = solver.part2()
 
         assertEquals(expected, output)
     }
