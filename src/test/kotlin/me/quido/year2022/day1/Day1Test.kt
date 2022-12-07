@@ -1,10 +1,10 @@
-package me.quido.year2022.day01
+package me.quido.year2022.day1
 
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
 import kotlin.test.assertEquals
 
-class Day01Test {
+class Day1Test {
     private val input = """
                  1000
                  2000
@@ -22,7 +22,7 @@ class Day01Test {
                  10000          
         """.trimIndent().trimEnd()
 
-    private val solver = Day01(input)
+    private val solver = Day1(input)
 
     @ParameterizedTest
     @CsvSource(
