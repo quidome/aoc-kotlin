@@ -1,17 +1,17 @@
-package me.quido.year2022.day02
+package me.quido.year2022.day2
 
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
 
-class Day02Test {
+class Day2Test {
     private val input = """
         A Y
         B X
         C Z
         """.trimIndent().trimEnd()
 
-    private val solver = Day02(input)
+    private val solver = Day2(input)
 
     @Test
     fun givenTestSetMethodShouldReturn15() {

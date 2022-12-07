@@ -1,17 +1,17 @@
-package me.quido.year2022.day02
+package me.quido.year2022.day2
 
 import me.quido.util.getInputAsText
 
 fun main() {
     val input = getInputAsText(2022, 2) ?: error("Input file does not exist")
-    val solver = Day02(input)
+    val solver = Day2(input)
 
     println(solver.part1())
     println(solver.part2())
 }
 
 
-class Day02(private val input: String) {
+class Day2(private val input: String) {
     fun part1(): Int {
         var myScore = 0
         val turns = turnsTranslatedToScores()
