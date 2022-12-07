@@ -1,18 +1,18 @@
-package me.quido.year2022.day01
+package me.quido.year2022.day1
 
 import me.quido.util.getInputAsText
 
 fun main() {
     val input = getInputAsText(2022, 1) ?: error("Input file does not exist")
-    val day01 = Day01(input)
+    val day1 = Day1(input)
 
-    println(day01.getCaloriesCarriedByTheTopElves(1))
-    println(day01.getCaloriesCarriedByTheTopElves(3))
+    println(day1.getCaloriesCarriedByTheTopElves(1))
+    println(day1.getCaloriesCarriedByTheTopElves(3))
 
 }
 
 
-class Day01(private val input: String) {
+class Day1(private val input: String) {
     fun getCaloriesCarriedByTheTopElves(amountOfTopElves: Int): Int =
         cleanedCalorieLog(input)
             .map { it.sum() }
