@@ -57,8 +57,12 @@ class Day2(private val input: String) {
 
 
     private fun turnToInt(turn: String): Int {
-        val returnValues = mapOf("A" to 1 , "B" to 2, "C" to 3, "X" to 1, "Y" to 2, "Z" to 3)
-        return returnValues.getValue(turn)
+        return when (turn) {
+            "A", "X" -> 1
+            "B", "Y" -> 2
+            "C", "Z" -> 3
+            else -> 0
+        }
     }
 
 
@@ -67,9 +71,9 @@ class Day2(private val input: String) {
         val requiredResponse = turn[1]
 
         when (requiredResponse) {
-            1 -> return previousWeapon(theirTurn)
+            1 -> return getWeakerItem(theirTurn)
             2 -> return theirTurn
-            3 -> return nextWeapon(theirTurn)
+            3 -> return getStrongerItem(theirTurn)
         }
 
         error("$requiredResponse is not a valid response")
@@ -87,32 +91,9 @@ class Day2(private val input: String) {
     }
 
 
-    private fun weWin(theirTurn: Int, ourTurn: Int): Boolean {
-        if (
-            ourTurn == 1 && theirTurn == 3 ||
-            ourTurn == 2 && theirTurn == 1 ||
-            ourTurn == 3 && theirTurn == 2
-        ) {
-            return true
-        }
-        return false
-    }
+    private fun weWin(theirItem: Int, ourItem: Int): Boolean = ourItem == getStrongerItem(theirItem)
 
+    private fun getStrongerItem(weapon: Int): Int = weapon % 3 + 1
 
-    private fun nextWeapon(weapon: Int): Int {
-        var returnValue = weapon + 1
-        if (returnValue > 3) {
-            returnValue = 1
-        }
-        return returnValue
-    }
-
-
-    private fun previousWeapon(weapon: Int): Int {
-        var returnValue = weapon - 1
-        if (returnValue < 1) {
-            returnValue = 3
-        }
-        return returnValue
-    }
+    private fun getWeakerItem(weapon: Int): Int = (weapon - 2) % 3 + 1
 }
