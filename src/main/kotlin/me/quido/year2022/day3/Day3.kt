@@ -13,28 +13,12 @@ fun main() {
 
 class Day3(private val input: String) {
 
-    fun part1(): Int {
-        var totalPriority = 0
-        for (line in input.split("\n")) {
-            val rucksack = Rucksack(line)
-            totalPriority += itemsPriority(rucksack.itemIntersection())
-        }
-        return totalPriority
-    }
+    fun part1(): Int = input.lines()
+        .map { line -> Rucksack(line) }
+        .sumOf { rucksack -> rucksack.fixPriority() }
 
 
     fun part2(): Int {
         return 2
-    }
-
-    private fun itemsPriority(items: Set<Char>): Int {
-        var priorityTotal = 0
-        for (item in items) {
-            priorityTotal += when (item.isUpperCase()) {
-                true -> item.toInt() - 38
-                false -> item.toInt() - 96
-            }
-        }
-        return priorityTotal
     }
 }
